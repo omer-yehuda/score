@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #1e1ee7; /* Light gray with a subtle warmth */
+  --foreground: #1e293b; /* Dark slate blue for a modern look */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #88a7f5; /* Dark, muted blue-gray */
+    --foreground: #192117; /* Very light gray with a hint of blue */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Arial", Helvetica, sans-serif;
+}
