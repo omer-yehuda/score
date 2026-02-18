@@ -4,10 +4,10 @@ frontend:
     preBuild:
       commands:
         - npm install -g pnpm@10.17.0
-        - cd ap-score-app && pnpm install
+        - pnpm --dir ap-score-app install
     build:
       commands:
-        - cd ap-score-app && pnpm build
+        - pnpm --dir ap-score-app build
   artifacts:
     baseDirectory: ap-score-app/out
     files:
