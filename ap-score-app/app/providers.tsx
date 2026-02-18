@@ -2,25 +2,45 @@
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const theme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#1976d2',
+      main: '#6366f1',
+      light: '#818cf8',
+      dark: '#4f46e5',
     },
     secondary: {
-      main: '#dc004e',
+      main: '#ec4899',
+    },
+    background: {
+      default: '#f8fafc',
+      paper: '#ffffff',
+    },
+  },
+  typography: {
+    fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+  },
+  shape: {
+    borderRadius: 12,
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          fontWeight: 600,
+        },
+      },
     },
   },
 });
 
-export function Providers({ children }: { children: ReactNode }) {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
-  );
-}
+export const Providers = ({ children }: { children: ReactNode }) => (
+  <ThemeProvider theme={theme}>
+    <CssBaseline />
+    {children}
+  </ThemeProvider>
+);

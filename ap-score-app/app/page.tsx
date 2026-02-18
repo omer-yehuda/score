@@ -2,26 +2,27 @@
 
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import { PlayerSetup } from '@/components/PlayerSetup';
-import { ScoreTable } from '@/components/ScoreTable';
-import { WinnerDialog } from '@/components/WinnerDialog';
-import type { GameState } from '@/types/game';
+import Typography from '@mui/material/Typography';
+import { PlayerSetup } from './components/PlayerSetup';
+import { ScoreTable } from './components/ScoreTable';
+import { WinnerDialog } from './components/WinnerDialog';
+import type { GameState } from './types/game';
 
 export default function Home() {
   const [gameState, setGameState] = useState<GameState | null>(null);
   const [showSetup, setShowSetup] = useState(true);
   const [showWinner, setShowWinner] = useState(false);
 
-  const handleGameStart = (players: string[]) => {
+  const handleGameStart = (players: string[], isLowScoreWins: boolean) => {
     setGameState({
       isFinished: false,
       rounds: [],
-      players: players.map(name => ({
+      players: players.map((name) => ({
         name,
         totalScore: 0,
-        isWinning: false
+        isWinning: false,
       })),
-      isLowScoreWins: true
+      isLowScoreWins,
     });
     setShowSetup(false);
   };
@@ -38,13 +39,35 @@ export default function Home() {
     }
   };
 
+  const winners = gameState?.players.filter((p) => p.isWinning) ?? [];
+
   return (
-    <Box sx={{ minHeight: '100vh', bgcolor: 'grey.100', p: 3 }}>
+    <Box
+      sx={{
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',
+        py: { xs: 2, sm: 4 },
+        px: { xs: 1, sm: 2 },
+      }}
+    >
+      <Typography
+        variant="h4"
+        align="center"
+        fontWeight={700}
+        sx={{
+          color: '#fff',
+          mb: 3,
+          textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+        }}
+      >
+        Score Tracker
+      </Typography>
+
       {showSetup ? (
         <PlayerSetup onStart={handleGameStart} />
       ) : gameState ? (
         <>
-          <ScoreTable 
+          <ScoreTable
             gameState={gameState}
             setGameState={setGameState}
             onEndGame={handleEndGame}
@@ -52,7 +75,7 @@ export default function Home() {
           <WinnerDialog
             isOpen={showWinner}
             onClose={() => setShowWinner(false)}
-            winner={gameState.players.find(p => p.isWinning)}
+            winners={winners}
             onReset={handleReset}
           />
         </>
