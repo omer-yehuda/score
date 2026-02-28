@@ -11,6 +11,7 @@ import {
   Stack,
 } from '@mui/material';
 import { EmojiEvents as TrophyIcon } from '@mui/icons-material';
+import { TROPHY_GOLD } from '../lib/gameLogic';
 import type { Player } from '../types/game';
 
 interface WinnerDialogProps {
@@ -20,21 +21,35 @@ interface WinnerDialogProps {
   onReset: () => void;
 }
 
-export const WinnerDialog = ({ isOpen, onClose, winners, onReset }: WinnerDialogProps) => {
+export const WinnerDialog = ({
+  isOpen,
+  onClose,
+  winners,
+  onReset,
+}: WinnerDialogProps) => {
   if (winners.length === 0) return null;
 
   const isTie = winners.length > 1;
 
   return (
-    <Dialog open={isOpen} onClose={onClose} maxWidth="sm" fullWidth>
-      <DialogTitle align="center" sx={{ pb: 0 }}>
+    <Dialog
+      open={isOpen}
+      onClose={onClose}
+      maxWidth="sm"
+      fullWidth
+      aria-labelledby="winner-dialog-title"
+    >
+      <DialogTitle id="winner-dialog-title" align="center" sx={{ pb: 0 }}>
         <Typography variant="h5" fontWeight={700}>
-          {isTie ? 'It\'s a Tie!' : 'We Have a Winner!'}
+          {isTie ? "It's a Tie!" : 'We Have a Winner!'}
         </Typography>
       </DialogTitle>
       <DialogContent>
         <Box sx={{ textAlign: 'center', py: 3 }}>
-          <TrophyIcon sx={{ fontSize: 72, color: '#FFD700', mb: 2 }} />
+          <TrophyIcon
+            sx={{ fontSize: 72, color: TROPHY_GOLD, mb: 2 }}
+            aria-hidden="true"
+          />
           <Stack spacing={1} alignItems="center">
             {winners.map((winner) => (
               <Box key={winner.name}>
