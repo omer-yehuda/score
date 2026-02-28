@@ -1,0 +1,87 @@
+<mxfile host="app.diagrams.net" agent="Claude Code" version="24.0.0" type="device">
+  <diagram id="score-architecture" name="Score Tracker Architecture">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cloud-app" value="Client Application" style="shape=mxgraph.aws3.cloud;fillColor=#F2F2F2;strokeColor=#CCCCCC;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=-5;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="520" height="420" as="geometry" />
+        </mxCell>
+        <mxCell id="actor-user" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#E7157B;strokeColor=#B3114F;fontStyle=1;fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="160" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="nextjs" value="Next.js 14 App Router&#xa;(Static Export → /out)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ED7100;strokeColor=#C45E00;fontColor=#FFFFFF;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="80" y="60" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="theme-provider" value="ThemeProvider&#xa;MUI v5 + Emotion" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E7157B;strokeColor=#B3114F;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="60" width="140" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="home-page" value="Home Page (page.tsx)&#xa;useState&lt;GameState&gt;&#xa;Orchestrates 3 views" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ED7100;strokeColor=#C45E00;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="game-context" value="GameContext&#xa;isLowScoreWins toggle" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E73B8;strokeColor=#1A5A9E;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="340" y="140" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="player-setup" value="PlayerSetup&#xa;(2-6 players, names,&#xa;scoring mode)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#01A88D;strokeColor=#017A67;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="230" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="score-table" value="ScoreTable&#xa;(rounds, scores,&#xa;totals, winner)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#01A88D;strokeColor=#017A67;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="240" y="230" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="winner-dialog" value="WinnerDialog&#xa;(end-game,&#xa;tie handling)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#01A88D;strokeColor=#017A67;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="230" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="types" value="Types: Player, GameState" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#2E73B8;strokeColor=#1A5A9E;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="no-backend" value="No Backend / No Database&#xa;All state in useState (memory only)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#232F3E;strokeColor=#1A2530;fontColor=#FFFFFF;fontStyle=0;fontSize=9;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="320" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cloud-infra" value="Infrastructure" style="shape=mxgraph.aws3.cloud;fillColor=#F9F0FF;strokeColor=#BFA8D4;fontStyle=1;fontSize=14;verticalAlign=top;spacingTop=-5;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="50" y="490" width="520" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="amplify" value="AWS Amplify&#xa;(CloudFront CDN)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ED7100;strokeColor=#C45E00;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="530" width="160" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="build" value="Build: pnpm → next build&#xa;→ static export /out" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#232F3E;strokeColor=#1A2530;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="290" y="530" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="google-fonts" value="Google Fonts&#xa;(Inter)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#01A88D;strokeColor=#017A67;fontColor=#FFFFFF;fontStyle=0;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="620" y="160" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#666666;" edge="1" parent="1" source="actor-user" target="nextjs">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Open app" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#ED7100;" edge="1" parent="1" source="nextjs" target="home-page">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Renders" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#01A88D;" edge="1" parent="1" source="home-page" target="player-setup">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Setup phase" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#01A88D;" edge="1" parent="1" source="home-page" target="score-table">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Game phase" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#01A88D;" edge="1" parent="1" source="home-page" target="winner-dialog">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="End game" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#2E73B8;dashed=1;" edge="1" parent="1" source="home-page" target="game-context">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Provides context" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#ED7100;" edge="1" parent="1" source="amplify" target="nextjs">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Serves /out" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;curved=1;strokeColor=#01A88D;dashed=1;" edge="1" parent="1" source="nextjs" target="google-fonts">
+          <mxGeometry relative="1" as="geometry" />
+          <mxCell value="Load Inter font" style="edgeLabel;html=1;fontSize=9;fontColor=#333333;" vertex="1" connectable="0" as="value"><mxGeometry relative="1" as="geometry" /></mxCell>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
